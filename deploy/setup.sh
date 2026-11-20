@@ -16,7 +16,7 @@ set -euo pipefail
 DOMAIN=""
 EMAIL=""
 KEYS="no"
-IMAGE="ghcr.io/decentai-io/decentai-relay:1.0.0"
+IMAGE="ghcr.io/decentai-io/relay:1.0.0"
 BUILD="no"
 HOME_DIR="/srv/relay"
 NAME="decentai-relay"

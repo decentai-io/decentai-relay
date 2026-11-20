@@ -82,7 +82,7 @@ install gets its own certificate, on its own computer, through the relay.
      -e RELAY_DOMAIN=relay.example.net \
      -e RELAY_CERT=/certs/relay.pem -e RELAY_KEY=/certs/relay.key \
      -v /srv/relay/certs:/certs:ro -v /srv/relay/data:/data \
-     ghcr.io/decentai-io/decentai-relay:1.0.0
+     ghcr.io/decentai-io/relay:1.0.0
    ```
    Or with [deploy/docker-compose.yml](../deploy/docker-compose.yml):
    `RELAY_DOMAIN=relay.example.net docker compose up -d`, with `certs/` and `data/` beside it.

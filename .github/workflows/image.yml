@@ -1,4 +1,4 @@
-# The relay's image, ghcr.io/<owner>/decentai-relay:<version>, for amd64 and arm64. Published under the
+# The relay's image, ghcr.io/<owner>/relay:<version>, for amd64 and arm64. Published under the
 # version in relay/__init__.py, once: a version that is out is never replaced, so a change is published
 # by giving it a newer version. The package is public.
 name: Image
@@ -18,7 +18,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE: ghcr.io/${{ github.repository_owner }}/decentai-relay
+  IMAGE: ghcr.io/${{ github.repository_owner }}/relay
 
 jobs:
   image:
@@ -69,7 +69,7 @@ jobs:
             ${{ env.IMAGE }}:${{ steps.version.outputs.number }}
             ${{ env.IMAGE }}:latest
           labels: |
-            org.opencontainers.image.title=decentai-relay
+            org.opencontainers.image.title=DecentAI relay
             org.opencontainers.image.description=A relay that reaches a computer behind NAT, with end-to-end TLS
             org.opencontainers.image.version=${{ steps.version.outputs.number }}
             org.opencontainers.image.revision=${{ github.sha }}

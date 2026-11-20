@@ -6,7 +6,7 @@ name: decentai-relay
 
 services:
   relay:
-    image: ${RELAY_IMAGE:-ghcr.io/decentai-io/decentai-relay:1.0.0}
+    image: ${RELAY_IMAGE:-ghcr.io/decentai-io/relay:1.0.0}
     restart: unless-stopped
     ports:
       - "443:443"

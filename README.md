@@ -20,7 +20,7 @@ docs/protocol.md    the protocol, version 1
 docs/running.md     running a relay
 deploy/setup.sh     a relay on a fresh Debian or Ubuntu server, in one go
 deploy/docker-compose.yml
-Dockerfile          the image: ghcr.io/decentai-io/decentai-relay
+Dockerfile          the image: ghcr.io/decentai-io/relay
 ```
 
 ## Run one
