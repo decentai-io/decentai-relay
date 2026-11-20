@@ -1,0 +1,30 @@
+# A DecentAI relay with Docker Compose (docs/running.md). setup.sh does the same with `docker run`,
+# and gets the certificate too; with this file, put the relay's certificate and key in ./certs first.
+#
+#   RELAY_DOMAIN=relay.example.net docker compose up -d
+name: decentai-relay
+
+services:
+  relay:
+    image: ${RELAY_IMAGE:-ghcr.io/decentai-io/decentai-relay:1.0.0}
+    restart: unless-stopped
+    ports:
+      - "443:443"
+      - "80:80"
+    environment:
+      RELAY_DOMAIN: ${RELAY_DOMAIN:?name the relay, such as relay.example.net}
+      RELAY_CERT: /certs/relay.pem
+      RELAY_KEY: /certs/relay.key
+      # open: anyone may register; key: only with a key from /certs/keys.
+      RELAY_REGISTRATION: ${RELAY_REGISTRATION:-open}
+      RELAY_KEYS: /certs/keys
+    volumes:
+      # relay.pem, relay.key and, for key, keys: readable by the relay's user, 10001.
+      - ./certs:/certs:ro
+      # relay.db, its only state: back it up.
+      - ./data:/data
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
